@@ -101,7 +101,7 @@ end
 
 group :test do
   # Shoulda Matchers for testing [https://matchers.shoulda.io/]
-  gem 'shoulda-matchers', '~> 6.0'
+  gem "shoulda-matchers", "~> 6.0"
 
   # VCR for recording and playing back HTTP requests [https://github.com/vcr/vcr]
   gem "vcr", "~> 6.4"
@@ -109,4 +109,3 @@ group :test do
   # WebMock for mocking HTTP requests [https://github.com/bblimke/webmock]
   gem "webmock", "~> 3.26"
 end
-
