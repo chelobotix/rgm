@@ -38,5 +38,11 @@ module Rgm
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Use Sidekiq as the Active Job queue adapter
+    config.active_job.queue_adapter = :sidekiq
+
+    # Set the default locale to English
+    config.i18n.default_locale = :en
   end
 end
