@@ -4,11 +4,13 @@ services:
     build: .
     container_name: rgm_api
     entrypoint: ["docker-entrypoint.sh"]
-    # command: ["", "server", "-b", "0.0.0.0"]
-    command: ["bin/dev"]
+    # command: ["rails", "server", "-b", "0.0.0.0"]
+    command: ["bash", "-c", "cd /app && ./bin/dev"]
+    tty: true
     volumes:
       - .:/app
       - rails_genius_monolithic_bundle_cache:/usr/local/bundle
+    working_dir: /app
     ports:
       - "3000:3000"
     environment:
