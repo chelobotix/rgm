@@ -18,9 +18,11 @@ services:
       DB_HOST: rails_genius_monolithic_development
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
-      DB_NAME: rails_genius_monolithic_development
+      DB_NAME: rgm_development
       DB_TEST_HOST: rails_genius_monolithic_test
-      DB_TEST_NAME: rails_genius_monolithic_test
+      DB_TEST_NAME: rgm_test
+      DB_TEST_USERNAME: postgres
+      DB_TEST_PASSWORD: postgres
       DB_PORT: 5432
       REDIS_URL: redis://redis:6379/0
     depends_on:
@@ -41,7 +43,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: rails_genius_monolithic_development
+      POSTGRES_DB: rgm_development
     volumes:
       - rails_genius_monolithic_postgres_data:/var/lib/postgresql/data
     ports:
@@ -64,7 +66,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: rails_genius_monolithic_test
+      POSTGRES_DB: rgm_test
     volumes:
       - rails_genius_monolithic_postgres_test_data:/var/lib/postgresql/data
     ports:

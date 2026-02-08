@@ -17,6 +17,15 @@ Rails.application.routes.draw do
   end
 
   root "home#index"
+
+  resources :posts
+
+  resources :locales, only: [] do
+    collection do
+      get :updater, as: :updater
+    end
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)

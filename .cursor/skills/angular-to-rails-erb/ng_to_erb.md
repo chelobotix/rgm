@@ -1,0 +1,152 @@
+---
+name: angular-to-rails-erb
+description: Converts Angular component templates to Rails ERB partials using Tailwind CSS. Use when converting Angular components to Rails views, adapting component templates to ERB syntax, or creating Rails views with Tailwind styling. Prefers Tailwind utility classes over custom CSS, hardcodes all content (including dynamic elements like images as text placeholders), and focuses only on HTML/CSS structure - no Stimulus controllers or dynamic behavior.
+---
+
+# Angular to Rails ERB Conversion
+
+## Core Principles
+
+1. **Prefer Tailwind CSS**: Always use Tailwind utility classes instead of custom CSS
+2. **Hardcode Content**: Don't create internal partials - hardcode content directly (e.g., "search here" instead of `<%= render "search" %>`)
+3. **Hardcode Dynamic Elements**: All dynamic elements must be hardcoded. Images should be replaced with text placeholders (e.g., `<div>logo image</div>` instead of `<img>` or `<%= image_tag %>`). No dynamic bindings, no Stimulus controllers, no JavaScript behavior.
+4. **HTML and CSS Only**: The refactor should focus exclusively on HTML structure and CSS styling. Do not create any Stimulus controllers, JavaScript, or dynamic behavior.
+5. **English Only**: All content must be in English
+6. **Custom CSS Prefix**: If custom CSS is absolutely necessary, create it in `app/assets/tailwind/application.css` with view-specific prefix (e.g., `.header_h1 {}` for header view)
+
+## Conversion Patterns
+
+### Angular RouterLink → Rails link_to
+
+```erb
+<!-- Angular -->
+<a [routerLink]="['/']">Home</a>
+
+<!-- Rails ERB -->
+<%= link_to "Home", root_path %>
+```
+
+### Angular Image Binding → Hardcoded Text Placeholder
+
+```erb
+<!-- Angular -->
+<img [src]="logoImage()" alt="logo" />
+
+<!-- Rails ERB - Hardcoded placeholder -->
+<div class="h-8 w-8 flex items-center justify-center text-xs">logo image</div>
+```
+
+### Angular Class Binding → Tailwind Classes
+
+```erb
+<!-- Angular -->
+<div [class]="'flex items-center'">Content</div>
+
+<!-- Rails ERB -->
+<div class="flex items-center">Content</div>
+```
+
+### Angular Components → Hardcoded Content
+
+```erb
+<!-- Angular -->
+<app-search />
+<app-hamburger-menu />
+
+<!-- Rails ERB -->
+<div class="text-gray-600">Search here</div>
+<div class="p-2">Menu</div>
+```
+
+### Dynamic Elements → Hardcoded Placeholders
+
+**IMPORTANT**: All dynamic elements must be hardcoded as static text placeholders:
+
+```erb
+<!-- Angular -->
+<img [src]="logoImage()" alt="logo" />
+<img [src]="user.avatar" alt="user" />
+<button (click)="toggleMenu()">Menu</button>
+
+<!-- Rails ERB - All hardcoded -->
+<div class="h-8 w-8 flex items-center justify-center text-xs">logo image</div>
+<div class="h-10 w-10 flex items-center justify-center text-xs">user avatar</div>
+<div class="p-2">Menu</div>
+```
+
+**Rules for dynamic elements:**
+- Images → Replace with `<div>` containing descriptive text (e.g., "logo image", "user avatar")
+- Buttons with click handlers → Replace with static `<div>` (no button element, no click behavior)
+- Dynamic content → Replace with static placeholder text
+- No `image_tag`, no `link_to`, no Stimulus controllers, no JavaScript
+
+## Tailwind Class Equivalents
+
+Common Angular/CSS patterns converted to Tailwind:
+
+| Angular/CSS | Tailwind |
+|------------|----------|
+| `flex` | `flex` |
+| `align-items-center` | `items-center` |
+| `justify-content-center` | `justify-center` |
+| `justify-content-between` | `justify-between` |
+| `cursor-pointer` | `cursor-pointer` |
+| `hidden` (mobile) | `hidden md:flex` |
+| `visible` (desktop) | `hidden md:flex` |
+
+## Responsive Patterns
+
+```erb
+<!-- Mobile only -->
+<div class="flex md:hidden">Mobile content</div>
+
+<!-- Desktop only -->
+<div class="hidden md:flex">Desktop content</div>
+
+<!-- Both with different layouts -->
+<div class="flex flex-col md:flex-row">Responsive content</div>
+```
+
+## Example Structure
+
+```erb
+<div class="container mx-auto flex items-center justify-between px-4 py-4">
+  <div class="cursor-pointer">
+    <div class="flex items-center justify-center gap-2">
+      <div class="h-8 w-8 flex items-center justify-center text-xs">logo image</div>
+      <p class="text-xl font-semibold">App Name</p>
+    </div>
+  </div>
+  
+  <div class="flex items-center gap-4 md:hidden">
+    <!-- Mobile menu -->
+  </div>
+  
+  <div class="hidden md:flex items-center gap-6">
+    <!-- Desktop menu -->
+  </div>
+</div>
+```
+
+## Custom CSS Rules
+
+Only create custom CSS when Tailwind utilities are insufficient:
+
+1. Add to `app/assets/tailwind/application.css`
+2. Use view-specific prefix: `.viewname_element {}`
+3. Example: `.header_logo {}` for header view logo styles
+
+## Checklist
+
+When converting Angular components to Rails ERB:
+
+- [ ] All `[routerLink]` converted to static HTML (no `link_to` helpers)
+- [ ] All `[src]` bindings and images replaced with hardcoded text placeholders (e.g., "logo image")
+- [ ] All Angular components replaced with hardcoded HTML
+- [ ] All styling uses Tailwind utility classes
+- [ ] Responsive classes use Tailwind breakpoints (`md:`, `lg:`, etc.)
+- [ ] All text content is in English
+- [ ] No internal partials created
+- [ ] No Stimulus controllers or JavaScript behavior created
+- [ ] No dynamic bindings or interactive elements
+- [ ] Custom CSS (if needed) uses view-specific prefix
