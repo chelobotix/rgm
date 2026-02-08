@@ -9,6 +9,9 @@ gem "bootsnap", require: false
 # Devise for authentication
 gem "devise", "~> 5.0"
 
+# Heroicons for icons [https://github.com/tailwindlabs/heroicons]
+gem "heroicon"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
