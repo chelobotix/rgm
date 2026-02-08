@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :locales, only: [] do
     collection do
-      get :updater, as: :updater
+      post :updater, as: :updater
     end
   end
 
