@@ -1,0 +1,137 @@
+---
+alwaysApply: false
+---
+# Branch Review and Merge Request Summary
+
+When reviewing changes in the current branch for a merge request, follow these guidelines:
+
+## Comparison Target
+
+- **Always compare against `main` branch**
+- Use `git diff main` to see all changes
+- Use `git diff main --name-status` to see file changes summary
+- Use `git log --oneline main..HEAD` to see commit history
+
+## Review Process
+
+1. **Identify the current branch**
+   ```bash
+   git branch --show-current
+   ```
+
+2. **Get file changes summary**
+   ```bash
+   git diff main --name-status
+   ```
+
+3. **Review specific file changes**
+   ```bash
+   git diff main <file_path>
+   ```
+
+4. **Check commit history**
+   ```bash
+   git log --oneline main..HEAD
+   ```
+
+## Summary Format
+
+When creating a summary for a merge request:
+
+### Structure
+
+1. **New Files Section**
+   - List all new files created
+   - Explain the purpose of each file
+   - Highlight key implementation details
+
+2. **Modified Files Section**
+   - List all modified files
+   - Explain what changed and why
+   - Focus on implementation details
+
+3. **Deleted Files Section**
+   - List removed files
+   - Explain why they were removed (if replaced, mention replacement)
+
+4. **Key Features Implemented**
+   - List main features/functionality added
+   - Highlight technical decisions
+
+5. **Technical Notes**
+   - Architecture decisions
+   - Dependencies added
+   - Configuration changes
+   - Any issues or warnings detected
+
+### Language Requirements
+
+- **All descriptions and summaries MUST be in English**
+- Code comments should be in English
+- Variable names, function names, and technical terms in English
+- Only user-facing content may be in other languages (if applicable)
+
+### Focus Areas
+
+When reviewing changes, prioritize:
+
+1. **Implementation details** - How features were implemented
+2. **Architecture** - Design patterns, structure, organization
+3. **Dependencies** - New gems, packages, or libraries
+4. **Configuration** - Changes to config files
+5. **Testing** - Test files added or modified
+6. **Breaking changes** - Any changes that might affect existing functionality
+
+### Example Summary Format
+
+```markdown
+## Summary of Changes: [Feature Name]
+
+### New Files
+1. `path/to/file.rb`
+   - Purpose: [What this file does]
+   - Key implementation: [Important details]
+
+### Modified Files
+1. `path/to/file.rb`
+   - Changes: [What changed]
+   - Reason: [Why it changed]
+
+### Key Features
+- Feature 1: [Description]
+- Feature 2: [Description]
+
+### Technical Notes
+- Architecture: [Pattern/approach used]
+- Dependencies: [New dependencies]
+- Configuration: [Config changes]
+- Issues: [Any problems detected]
+```
+
+## Git Commands Reference
+
+```bash
+# Current branch name
+git branch --show-current
+
+# File changes summary
+git diff main --name-status
+
+# Specific file diff
+git diff main app/path/to/file.rb
+
+# Commit history
+git log --oneline main..HEAD
+
+# All changes (full diff)
+git diff main
+```
+
+## Best Practices
+
+1. **Always compare against main** - Never use other branches as reference
+2. **Focus on implementation** - Explain HOW things were implemented, not just WHAT changed
+3. **Group related changes** - Organize by feature or component
+4. **Highlight important decisions** - Mention architectural choices and rationale
+5. **Detect issues early** - Point out syntax errors, potential bugs, or improvements needed
+6. **Use clear structure** - Make the summary easy to scan and understand

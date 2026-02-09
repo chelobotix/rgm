@@ -1,8 +1,12 @@
 ---
-name: angular-to-rails-erb
-description: Converts Angular component templates to Rails ERB partials using Tailwind CSS. Use when converting Angular components to Rails views, adapting component templates to ERB syntax, or creating Rails views with Tailwind styling. Prefers Tailwind utility classes over custom CSS, hardcodes all content (including dynamic elements like images as text placeholders), and focuses only on HTML/CSS structure - no Stimulus controllers or dynamic behavior.
+description: "Angular to Rails ERB conversion guide - converts Angular components to Rails ERB templates using Tailwind CSS, hardcoded content, and static placeholders"
+globs:
+  - "**/*.erb"
+  - "**/*.html.erb"
+  - "**/*.component.ts"
+  - "**/*.component.html"
+alwaysApply: false
 ---
-
 # Angular to Rails ERB Conversion
 
 ## Core Principles

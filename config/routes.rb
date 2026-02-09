@@ -22,9 +22,11 @@ Rails.application.routes.draw do
 
   resources :locales, only: [] do
     collection do
-      get :updater, as: :updater
+      post :updater, as: :updater
     end
   end
+
+  # Theme is now handled client-side via Stimulus + localStorage
 
   get "up" => "rails/health#show", as: :rails_health_check
 
