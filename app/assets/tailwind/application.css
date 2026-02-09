@@ -28,10 +28,11 @@ body {
   line-height: 1.7;
   margin: 0;
   background-color: #ffffff;
+  height: 100vh;
 }
 
 .dark body {
-  background-color: var(--color-dark-bg-primary);
+  background-color: var(--color-gray-900);
 
 }
 
@@ -300,7 +301,7 @@ label.flex.cursor-pointer input[type="checkbox"]:checked ~ .toggle-icon-right {
 label.flex.cursor-pointer .toggle:checked ~ .toggle-icon-left,
 label.flex.cursor-pointer input[type="checkbox"]:checked ~ .toggle-icon-left {
   opacity: 0.5;
-  transform: scale(0.9);
+  transform: scale(1);
 }
 
 label.flex.cursor-pointer .toggle:not(:checked) ~ .toggle-icon-left,
@@ -311,6 +312,6 @@ label.flex.cursor-pointer input[type="checkbox"]:not(:checked) ~ .toggle-icon-le
 
 label.flex.cursor-pointer .toggle:not(:checked) ~ .toggle-icon-right,
 label.flex.cursor-pointer input[type="checkbox"]:not(:checked) ~ .toggle-icon-right {
-  opacity: 0.5;
-  transform: scale(0.9);
+  opacity: 0.8;
+  transform: scale(1);
 }

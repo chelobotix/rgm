@@ -1,5 +1,5 @@
 <div class="flex justify-center items-center gap-2" data-controller="theme">
-  <label class="flex cursor-pointer gap-2 items-center text-white dark:text-gray-400">
+  <label class="flex cursor-pointer gap-2 items-center <%= icon_color %> dark:<%= icon_color_dark %>">
     <svg
       class="toggle-icon-left"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@
     </svg>
     <input type="checkbox" value="synthwave" data-theme-target="toggle" data-action="click->theme#toggle" class="toggle theme-controller" />
     <svg
-      class="toggle-icon-right text-gray-400 dark:text-white"
+      class="toggle-icon-right <%= icon_color %> dark:<%= icon_color_dark %>"
       xmlns="http://www.w3.org/2000/svg"
       width="25"
       height="25"
