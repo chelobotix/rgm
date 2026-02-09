@@ -1,7 +1,8 @@
 <%= link_to root_path, class: "cursor-pointer" do %>
   <div class="flex items-center justify-center gap-2">
-    <%= image_tag "rails-genius-logo.png", alt: "rails genius logo", class: "h-18 w-18" %>
-    <p class="text-xl font-semibold text-gray-900">Rails Genius</p>
+    <%= image_tag "rails-genius-logo.png", alt: "rails genius logo", class: "h-18 w-18 dark:hidden" %>
+    <%= image_tag "rails-genius-logo-dark.png", alt: "rails genius logo", class: "h-18 w-18 hidden dark:block" %>
+    <p class="text-xl font-semibold text-gray-900 dark:text-white">Rails Genius</p>
   </div>
 <% end %>
 
