@@ -25,12 +25,15 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" %>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <main class="max-w-7xl mx-auto bg-white dark:bg-gray-900">
       <%= render "header/header" %>
+      <%= render "shared/flash" %>
       <%= yield %>
     </main>
   </body>

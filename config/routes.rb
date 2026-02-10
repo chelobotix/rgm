@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  resources :posts
+  resources :posts, only: [:new, :create, :edit, :update, :destroy] do
+    get :editor, on: :collection
+  end
 
   resources :locales, only: [] do
     collection do

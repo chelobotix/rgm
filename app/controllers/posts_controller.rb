@@ -8,8 +8,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.save
+    post = Post.new(post_params)
+    post.user = current_user
+
+    if post.save
+      redirect_to posts_path, notice: "Post created successfully"
+    else
+      redirect_to posts_path, alert: "Post creation failed: #{post.errors.full_messages.join(", ")}"
+    end
   end
 
   def update
@@ -22,8 +28,29 @@ class PostsController < ApplicationController
     @post.destroy
   end
 
+  def editor
+    @post = Post.new
+  end
+
   private
   def post_params
-    params.require(:post).permit(:title_en, :title_es, :title_pt, :description_en, :description_es, :description_pt, :body_en, :body_es, :body_pt, :image_url, :thumbnail_url, :tags, :words, :year, :user_id)
+    params
+      .require(:post)
+      .permit(
+        :title_en,
+        :title_es,
+        :title_pt,
+        :description_en,
+        :description_es,
+        :description_pt,
+        :body_en,
+        :body_es,
+        :body_pt,
+        :image_url,
+        :thumbnail_url,
+        :tags, :words,
+        :year,
+        :user_id
+      )
   end
 end
