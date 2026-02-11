@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def create
     post = Post.new(post_params)
     post.user = current_user
+    post.words = 1000
 
     if post.save
       redirect_to posts_path, notice: "Post created successfully"
@@ -49,7 +50,6 @@ class PostsController < ApplicationController
         :image_url,
         :thumbnail_url,
         :tags, :words,
-        :year,
         :user_id
       )
   end

@@ -8,6 +8,11 @@
     </div>
 
     <div>
+      <%= form.label :title, "Description", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
+      <%= form.text_field :description_en, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white" %>
+    </div>
+
+    <div>
       <%= form.label :content, "Content", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
 
       <div
@@ -19,42 +24,43 @@
       </div>
     </div>
 
+    <hr>
+
+    <div>
+      <%= form.label :title_es, "Titulo ES", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
+      <%= form.text_field :title_es, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white" %>
+    </div>
+
+    <div>
+      <%= form.label :description_es, "Descripción ES", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
+      <%= form.text_field :description_es, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white" %>
+    </div>
+
+    <div>
+      <%= form.label :body_es, "Contenido ES", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
+      <%= form.text_area :body_es, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white", style: "min-height: 400px;" %>
+    </div>
+
+    <hr>
+
+    <div>
+      <%= form.label :title_pt, "Titulo PT", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
+      <%= form.text_field :title_pt, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white" %>
+    </div>
+
+    <div>
+      <%= form.label :description_pt, "Descrição PT", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
+      <%= form.text_field :description_pt, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white" %>
+    </div>
+
+    <div>
+      <%= form.label :body_pt, "Contenido PT", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" %>
+      <%= form.text_area :body_pt, class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600 dark:text-white", style: "min-height: 400px;" %>
+    </div>
+
     <div class="flex gap-4">
       <%= form.submit "Save", class: "px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors" %>
       <%= link_to "Cancel", posts_path, class: "px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors" %>
     </div>
   <% end %>
 </div>
-
-<style>
-  /* Quill editor styles */
-  .quill-editor {
-    min-height: 400px;
-  }
-
-  /* Dark mode support for Quill */
-  .dark .ql-editor {
-    color: #f3f4f6;
-  }
-
-  .dark .ql-toolbar {
-    border-color: #4b5563;
-    background-color: #1f2937;
-  }
-
-  .dark .ql-container {
-    border-color: #4b5563;
-  }
-
-  .dark .ql-stroke {
-    stroke: #9ca3af;
-  }
-
-  .dark .ql-fill {
-    fill: #9ca3af;
-  }
-
-  .dark .ql-picker-label {
-    color: #9ca3af;
-  }
-</style>
