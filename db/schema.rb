@@ -52,7 +52,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_02_182952) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.integer "words", null: false
-    t.integer "year", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
