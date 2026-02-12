@@ -10,6 +10,20 @@ module Ia
       private attr_reader :message, :context
       attr_reader :result
 
+      CONNECTION_ERRORS = [
+        Net::OpenTimeout,
+        Net::ReadTimeout,
+        Errno::ECONNREFUSED,
+        Errno::ECONNRESET,
+        Errno::ETIMEDOUT,
+        Errno::EHOSTUNREACH,
+        Errno::ENETUNREACH,
+        Errno::EPIPE,
+        SocketError,
+        OpenSSL::SSL::SSLError
+      ].freeze
+      private_constant :CONNECTION_ERRORS
+
       def initialize(message:, context:)
         @message = message
         @context = context
@@ -24,32 +38,27 @@ module Ia
         set_errors({ service: self.class, code: e.code, details: e.details })
         set_as_invalid!
 
-      rescue Net::ReadTimeout => e
-        set_errors({ service: self.class, code: ErrorCodes::CODES[:READ_TIMEOUT_ERROR], details: e.message })
-        set_as_invalid!
-
-      rescue Net::OpenTimeout => e
-        set_errors({ service: self.class, code: ErrorCodes::CODES[:OPEN_TIMEOUT_ERROR], details: e.message })
+      rescue *CONNECTION_ERRORS => e
+        set_errors({ service: self.class, code: ErrorCodes::CODES[:CONNECTION_ERROR], details: e.message })
         set_as_invalid!
       end
 
       private
 
       def handle_request
-        debugger
         models = [ "gemini-3-flash-preview", "gemini-2.0-flash" ]
 
         models.each_with_index do |model, index|
           break if result.present?
 
+          if index == 1
+            ::Rails.logger.info({ service: self.class, message: "Using gemini-2.0-flash model as fallback" })
+          end
+
           request = build_request(model)
           response = perform_request(request)
           handle_response(request, response, index)
         end
-
-      rescue JSON::ParserError => e
-        Rails.logger.error(e.message)
-        raise_service_error(:PARSE_ERROR, "Failed to parse Gemini response: #{response.body}")
       end
 
       def build_request(model)
@@ -78,8 +87,8 @@ module Ia
       def perform_request(request)
         http = Net::HTTP.new(request.uri.host, request.uri.port)
         http.use_ssl = true
-        http.open_timeout = 30
-        http.read_timeout = 30
+        http.open_timeout = ENV.fetch("OPEN_TIME_OUT", "30").to_i
+        http.read_timeout = ENV.fetch("READ_TIME_OUT", "30").to_i
         http.request(request)
       end
 
@@ -89,15 +98,29 @@ module Ia
 
           raise_service_error(:FETCH_ERROR, "Failed to fetch Gemini response: #{response.body}")
         end
-        debugger
-        parsed_response = JSON.parse(response.body).with_indifferent_access
-        build_response(parsed_response)
+
+        build_response(response.body)
       end
 
-      def build_response(parsed_response)
+      def build_response(response)
+        parsed_response = JSON.parse(response).with_indifferent_access
         text = parsed_response.dig(:candidates, 0, :content, :parts, 0, :text)
+
+        if text.blank?
+          raise_service_error(:NO_GEMINI_CANDIDATE, "No candidate found in Gemini response: #{response}")
+        end
+
         parsed_text = JSON.parse(text).with_indifferent_access
+
+        if parsed_text.dig(:translated_html).blank?
+          raise_service_error(:NO_GEMINI_CANDIDATE, "No translated HTML found in Gemini response: #{response}")
+        end
+
         @result = parsed_text.dig(:translated_html)
+
+      rescue JSON::ParserError => e
+        Rails.logger.error(e.message)
+        raise_service_error(:PARSE_ERROR, "Failed to parse Gemini response: #{response}")
       end
     end
   end

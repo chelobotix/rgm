@@ -31,14 +31,14 @@ module Ia
       end
 
       def validate_message
-        if message.blank?
-          raise_service_error(:MESSAGE_ERROR, "Message is required")
+        if message.blank? || !message.is_a?(String)
+          raise_service_error(:MESSAGE_ERROR, "Message is required and must be a string")
         end
       end
 
       def validate_context_type
-        if context_type.blank?
-          raise_service_error(:CONTEXT_TYPE_ERROR, "Context type is required")
+        if context_type.blank? || !context_type.is_a?(Symbol)
+          raise_service_error(:CONTEXT_TYPE_ERROR, "Context type is required and must be a symbol")
         end
       end
 

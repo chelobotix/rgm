@@ -28,8 +28,6 @@ module Ia
       private
       def get_context
         validate_context_type
-        return if errors.present?
-
         get_context_by_type
       end
 

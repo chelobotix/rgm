@@ -15,7 +15,6 @@ module Ia
       end
 
       def call
-        debugger
         perform
         set_as_valid! if errors.blank?
       end

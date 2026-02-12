@@ -9,8 +9,8 @@ module Ia
         FETCH_ERROR: 1004,
         PARSE_ERROR: 1005,
         CONTEXT_TYPE_ERROR: 1006,
-        READ_TIMEOUT_ERROR: 2000,
-        OPEN_TIMEOUT_ERROR: 3000
+        NO_GEMINI_CANDIDATE: 1007,
+        CONNECTION_ERROR: 2000
       }.freeze
     end
   end
