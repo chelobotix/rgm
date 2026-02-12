@@ -1,0 +1,319 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent
+    body:
+      encoding: UTF-8
+      string: '{"contents":[{"parts":[{"text":"You are a professional technical translator.\n\nTASK:\nTranslate
+        the provided HTML content from English to Spanish.\n\nSTRICT RULES:\n- Preserve
+        ALL HTML tags exactly as received\n- Do NOT remove, reorder, or add tags\n-
+        Only translate visible text nodes\n- Do NOT translate code snippets, attributes,
+        or URLs\n- Do NOT add explanations\n- Do NOT add comments\n- Do NOT wrap with
+        markdown\n- Do NOT add extra fields\n\nOUTPUT FORMAT (MANDATORY JSON):\n{\n  \"translated_html\":
+        \"\u003chtml here\u003e\"\n}\n\nIf translation is not possible, return:\n{\n  \"translated_html\":
+        null\n}\n\nReturn ONLY valid JSON.\n \u003ch1\u003eHello, world!\u003c/h1\u003e"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - generativelanguage.googleapis.com
+      X-Goog-Api-Key:
+      - no_api_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 12 Feb 2026 18:07:02 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=854
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "generativelanguage.googleapis.com"
+                }
+              },
+              {
+                "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+                "locale": "en-US",
+                "message": "API key not valid. Please pass a valid API key."
+              }
+            ]
+          }
+        }
+  recorded_at: Thu, 12 Feb 2026 18:07:02 GMT
+- request:
+    method: post
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent
+    body:
+      encoding: UTF-8
+      string: '{"contents":[{"parts":[{"text":"You are a professional technical translator.\n\nTASK:\nTranslate
+        the provided HTML content from English to Spanish.\n\nSTRICT RULES:\n- Preserve
+        ALL HTML tags exactly as received\n- Do NOT remove, reorder, or add tags\n-
+        Only translate visible text nodes\n- Do NOT translate code snippets, attributes,
+        or URLs\n- Do NOT add explanations\n- Do NOT add comments\n- Do NOT wrap with
+        markdown\n- Do NOT add extra fields\n\nOUTPUT FORMAT (MANDATORY JSON):\n{\n  \"translated_html\":
+        \"\u003chtml here\u003e\"\n}\n\nIf translation is not possible, return:\n{\n  \"translated_html\":
+        null\n}\n\nReturn ONLY valid JSON.\n \u003ch1\u003eHello, world!\u003c/h1\u003e"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - generativelanguage.googleapis.com
+      X-Goog-Api-Key:
+      - no_api_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 12 Feb 2026 18:07:34 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=976
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "generativelanguage.googleapis.com"
+                }
+              },
+              {
+                "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+                "locale": "en-US",
+                "message": "API key not valid. Please pass a valid API key."
+              }
+            ]
+          }
+        }
+  recorded_at: Thu, 12 Feb 2026 18:07:34 GMT
+- request:
+    method: post
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent
+    body:
+      encoding: UTF-8
+      string: '{"contents":[{"parts":[{"text":"You are a professional technical translator.\n\nTASK:\nTranslate
+        the provided HTML content from English to Spanish.\n\nSTRICT RULES:\n- Preserve
+        ALL HTML tags exactly as received\n- Do NOT remove, reorder, or add tags\n-
+        Only translate visible text nodes\n- Do NOT translate code snippets, attributes,
+        or URLs\n- Do NOT add explanations\n- Do NOT add comments\n- Do NOT wrap with
+        markdown\n- Do NOT add extra fields\n\nOUTPUT FORMAT (MANDATORY JSON):\n{\n  \"translated_html\":
+        \"\u003chtml here\u003e\"\n}\n\nIf translation is not possible, return:\n{\n  \"translated_html\":
+        null\n}\n\nReturn ONLY valid JSON.\n \u003ch1\u003eHello, world!\u003c/h1\u003e"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - generativelanguage.googleapis.com
+      X-Goog-Api-Key:
+      - no_api_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 12 Feb 2026 18:08:00 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=852
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "generativelanguage.googleapis.com"
+                }
+              },
+              {
+                "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+                "locale": "en-US",
+                "message": "API key not valid. Please pass a valid API key."
+              }
+            ]
+          }
+        }
+  recorded_at: Thu, 12 Feb 2026 18:08:00 GMT
+- request:
+    method: post
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent
+    body:
+      encoding: UTF-8
+      string: '{"contents":[{"parts":[{"text":"You are a professional technical translator.\n\nTASK:\nTranslate
+        the provided HTML content from English to Spanish.\n\nSTRICT RULES:\n- Preserve
+        ALL HTML tags exactly as received\n- Do NOT remove, reorder, or add tags\n-
+        Only translate visible text nodes\n- Do NOT translate code snippets, attributes,
+        or URLs\n- Do NOT add explanations\n- Do NOT add comments\n- Do NOT wrap with
+        markdown\n- Do NOT add extra fields\n\nOUTPUT FORMAT (MANDATORY JSON):\n{\n  \"translated_html\":
+        \"\u003chtml here\u003e\"\n}\n\nIf translation is not possible, return:\n{\n  \"translated_html\":
+        null\n}\n\nReturn ONLY valid JSON.\n \u003ch1\u003eHello, world!\u003c/h1\u003e"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - generativelanguage.googleapis.com
+      X-Goog-Api-Key:
+      - no_api_key
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 12 Feb 2026 18:08:13 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=925
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "code": 400,
+            "message": "API key not valid. Please pass a valid API key.",
+            "status": "INVALID_ARGUMENT",
+            "details": [
+              {
+                "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                "reason": "API_KEY_INVALID",
+                "domain": "googleapis.com",
+                "metadata": {
+                  "service": "generativelanguage.googleapis.com"
+                }
+              },
+              {
+                "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+                "locale": "en-US",
+                "message": "API key not valid. Please pass a valid API key."
+              }
+            ]
+          }
+        }
+  recorded_at: Thu, 12 Feb 2026 18:08:13 GMT
+recorded_with: VCR 6.4.0

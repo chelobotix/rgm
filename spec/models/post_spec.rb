@@ -16,7 +16,6 @@ RSpec.describe Post, type: :model do
     it { should validate_presence_of(:body_es) }
     it { should validate_presence_of(:body_pt) }
     it { should validate_presence_of(:words) }
-    it { should validate_presence_of(:year) }
     it { should validate_presence_of(:user_id) }
   end
 
@@ -34,8 +33,8 @@ RSpec.describe Post, type: :model do
         body_en: 'Test Body',
         body_es: 'Cuerpo de Prueba',
         body_pt: 'Corpo de Teste',
-        words: 100,
-        year: 2025)
+        words: 100
+      )
     end
 
     context 'initial state' do

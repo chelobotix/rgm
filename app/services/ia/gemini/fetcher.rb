@@ -10,6 +10,9 @@ module Ia
       private attr_reader :message, :context
       attr_reader :result
 
+      MODEL = "gemini-3-flash-preview"
+      MAX_RETRIES = 3
+
       CONNECTION_ERRORS = [
         Net::OpenTimeout,
         Net::ReadTimeout,
@@ -22,7 +25,7 @@ module Ia
         SocketError,
         OpenSSL::SSL::SSLError
       ].freeze
-      private_constant :CONNECTION_ERRORS
+      private_constant :CONNECTION_ERRORS, :MODEL, :MAX_RETRIES
 
       def initialize(message:, context:)
         @message = message
@@ -46,23 +49,22 @@ module Ia
       private
 
       def handle_request
-        models = [ "gemini-3-flash-preview", "gemini-2.0-flash" ]
+        (0..MAX_RETRIES).each do |attempt|
+          request = build_request
+          response = perform_request(request)
 
-        models.each_with_index do |model, index|
-          break if result.present?
-
-          if index == 1
-            ::Rails.logger.info({ service: self.class, message: "Using gemini-2.0-flash model as fallback" })
+          if response.is_a?(Net::HTTPSuccess)
+            return build_response(response.body)
           end
 
-          request = build_request(model)
-          response = perform_request(request)
-          handle_response(request, response, index)
+          next if attempt < MAX_RETRIES
+
+          raise_service_error(:FETCH_ERROR, "Failed to fetch Gemini response: #{response.body}")
         end
       end
 
-      def build_request(model)
-        uri = URI.parse("#{ENV.fetch("GEMINI_BASE_URL")}/models/#{model}:generateContent")
+      def build_request
+        uri = URI.parse("#{ENV.fetch("GEMINI_BASE_URL")}/models/#{MODEL}:generateContent")
         request = Net::HTTP::Post.new(uri)
         request["x-goog-api-key"] = ENV.fetch("GEMINI_API_KEY")
         request["Content-Type"] = "application/json"
@@ -90,16 +92,6 @@ module Ia
         http.open_timeout = ENV.fetch("OPEN_TIME_OUT", "30").to_i
         http.read_timeout = ENV.fetch("READ_TIME_OUT", "30").to_i
         http.request(request)
-      end
-
-      def handle_response(request, response, attempt)
-        unless response.is_a?(Net::HTTPSuccess)
-          return if attempt == 0
-
-          raise_service_error(:FETCH_ERROR, "Failed to fetch Gemini response: #{response.body}")
-        end
-
-        build_response(response.body)
       end
 
       def build_response(response)
