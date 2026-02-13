@@ -12,6 +12,7 @@ VCR.configure do |config|
       Authorization
       X-Api-Key
       X-Access-Token
+      X-Goog-Api-Key
     ].each do |header|
       interaction.request.headers[header]&.map! { "<#{header.upcase.gsub('-', '_')}>" }
     end
