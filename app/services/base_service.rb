@@ -16,7 +16,7 @@ private
   end
 
   def set_errors(errors)
-    Rails.logger.error({ service: self.class, errors: errors }.to_json) unless Rails.env.test?
+    ::Rails.logger.error(errors.to_json) unless Rails.env.test?
     @errors = errors
   end
 end

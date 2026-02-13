@@ -11,7 +11,6 @@ FactoryBot.define do
     body_es { 'Cuerpo de Prueba' }
     body_pt { 'Corpo de Teste' }
     words { 100 }
-    year { 2025 }
     status { 'draft' }
 
     trait :published do

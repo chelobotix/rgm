@@ -21,7 +21,6 @@ class Post < ApplicationRecord
   validates :body_es, presence: true
   validates :body_pt, presence: true
   validates :words, presence: true
-  validates :year, presence: true
   validates :user_id, presence: true
 
   # AASM STATE MACHINE
