@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent
+    body:
+      encoding: UTF-8
+      string: '{"contents":[{"parts":[{"text":"You are a professional technical translator.\n\nTASK:\nTranslate
+        the provided HTML content from English to Spanish.\n\nSTRICT RULES:\n- Preserve
+        ALL HTML tags exactly as received\n- Do NOT remove, reorder, or add tags\n-
+        Only translate visible text nodes\n- Do NOT translate code snippets, attributes,
+        or URLs\n- Do NOT add explanations\n- Do NOT add comments\n- Do NOT wrap with
+        markdown\n- Do NOT add extra fields\n\nOUTPUT FORMAT (MANDATORY JSON):\n{\n  \"translated_html\":
+        \"\u003chtml here\u003e\"\n}\n\nIf translation is not possible, return:\n{\n  \"translated_html\":
+        null\n}\n\nReturn ONLY valid JSON.\n \u003ch1\u003eHello, world!\u003c/h1\u003e"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - generativelanguage.googleapis.com
+      X-Goog-Api-Key:
+      - AIzaSyDp04zq_5zTch2NQVmX4VMwlv8LccS1NIc
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Thu, 12 Feb 2026 15:22:26 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=3153
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJjYW5kaWRhdGVzIjogWwogICAgewogICAgICAiY29udGVudCI6IHsKICAgICAgICAicGFydHMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJ0ZXh0IjogIntcbiAgXCJ0cmFuc2xhdGVkX2h0bWxcIjogXCJcdTAwM2NoMVx1MDAzZcKhSG9sYSwgbXVuZG8hXHUwMDNjL2gxXHUwMDNlXCJcbn0iLAogICAgICAgICAgICAidGhvdWdodFNpZ25hdHVyZSI6ICJFcjRJQ3JzSUFiNCs5dnZDUmlNMk04WHZBVm1hMkk5Zjh0bFkxYTJHcHRudnJzQ1YrVzdOb0RzTEZJNStkeHRIeXNHeWhXQWpSWjFUVHcyOW9YR2RDYlgvcVhKRVJQWEhxbGVVSHNXWk9oK0VibG0zaE1mZTlmRTlHaUFyV0NNQjBQS3ZQT2VJbUgySzIvMnQ3K1FONXhwT21oT3Brd0tmTXZJSXA3UGdpZmRRcUpXaHF1cCt3V3ZudSt3RG40M3FlYVVXcTRJcDZwTEFaWHJTWmp1dUxpRzM5U2JvTzB5V0tRc3ZLWTBYMXV0QVhldDI5eUJ0dzBFci9LM3BodHM3eEJBeG82UUdINCtldDBtYWEzd001TW9XclZFK3hvTGdmbDA5UGRxY05NMHVYdVE5ZTN3Zi9PdERtbVhMdEdLc3VwZG1qSVpiTmwxVEFlRWFqZkZ1SzhHa2ZHVnNIL0RpaDZEcllqTjVjMW0vREpCMHpwOGlrdlZwVUI4SFh1V0xXUGhaMFE1enBKYmpuQk95RXFCUkFwbGVXYzZDdjQ3YnBQUHRONm82WU14YS8xajA1dnFmWXVxeEZRL3Q0UGE2TkFoM1lWVUFsVkc0N1NtN2NiVEN2dEUvbW9ra21wVjhIN2xUVFNTdTMxQVhseU9CdHc1aGlzdHVjRkg5RWVLME9BODljVHJjRkkvb0U3UEJNUHBGZS82ZzRlMDhQNWZ6SVdsYTVHR01YaUdJOFN2OXlWSHVhUGV4aDVVaC9ITE1Ka1lZRGd2TkxhZ2RWbTZZa0xFMzgvTVJWWHQ1SW5INlBpWnlVNjVKbFNBRmJWRFJFQUQzT2tpMUxjMytwdVQ1c21TbGVqWkc0dy9tQkZrMUMyaTNUb1RDZ0g1Vm1Jam1haG5uazYvSFRLK1lWSWd6RWkvSkh5SHQxT0dEMlh2anJoR1VFSVhMS2hwRGg5K3BDRGR1Z1Rya3Q0dzNGYUhpeFVla0Q4TS9OOTlPZWRnakhQSU9LeDEzZUZmaTI2WlBuM2lVK2xhS2ZRYkNzK25UQXI5TUhpOEovek0ybk5CMG01a1pHd3pWb2svZ25WTmIyTzN1NEc4T1M0bThEZlArd2M3TWtCOUZpUmlwV0pvdVpSQ1dJQkY4UllGZ0x0V1VpeXdranlNRDQvaDhZMGtoVXdYcHZsQ01yYkJJaXdnUlo1Syt3TGRoYW52N2ZxSVBrRDhDQU5jWWZKK0tnWGR4Ylk3eDBJeHpiL2l6RUlnS0RocXBxZnpyZFZ5V1RCMVk0aG9kVHVGN054QXkvdjhLeUNFd01QcUYxSmtIVVJwT0ViUVA4VGQ5WHQ4RWdTSmxrWnJNRDJSYzQvdFAwTmlZQk9FZ1pna0tPOWZRR2JvWW9FeTh2QkJZUDcxdGkrQVc3cE5TWU5XMnp1R0pnVG82NXZmWXV3dlBqRTZ3bWRaMWJ4MHBEb3c0YWlnRDdwM1VEUDBDbU1ZQnVtNUNVWVZkcFBLY2JEbjBDUzFUbWZBSlZXM1Z2eHNzMWNHcHdWeUV5VkR6a095QlpFNzA2L2dXRUduQzFZU2EvN3d1TWlPNVk2eVJzaE1LWm83bmhVdVZOUzR0SEIxa053SGM1U2k5L2RnMVo3aFN6K3k4ZHBDMkROODRPTDNGcTBqQk8yU0orSk1WQ3YzRmthRkRnR2lIMk1EOGRzT0Yva204S042MWx5K09rY0Z6L0RCN3hMSTVCZVVxK3NoLy9IZGhZbyttVFZxZG55VU9BUlBBeFJkUnNXTjIvRzVpdHFWUTdkaTdIcDVKZy9uWFVtNGk1NUFJeldXUFdORjZGRVIydmJLZVRjNkNTV2VrQXNKdGdnaUs2RFdkbEpNNkZYamVSUjgydS8yRUt4bW9IRXhmMWU1TzU5amtMRUVKT1BYUit4TC91RXJheXlWT0p3Q1giCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAicm9sZSI6ICJtb2RlbCIKICAgICAgfSwKICAgICAgImZpbmlzaFJlYXNvbiI6ICJTVE9QIiwKICAgICAgImluZGV4IjogMAogICAgfQogIF0sCiAgInVzYWdlTWV0YWRhdGEiOiB7CiAgICAicHJvbXB0VG9rZW5Db3VudCI6IDE1MSwKICAgICJjYW5kaWRhdGVzVG9rZW5Db3VudCI6IDE5LAogICAgInRvdGFsVG9rZW5Db3VudCI6IDQ3NiwKICAgICJwcm9tcHRUb2tlbnNEZXRhaWxzIjogWwogICAgICB7CiAgICAgICAgIm1vZGFsaXR5IjogIlRFWFQiLAogICAgICAgICJ0b2tlbkNvdW50IjogMTUxCiAgICAgIH0KICAgIF0sCiAgICAidGhvdWdodHNUb2tlbkNvdW50IjogMzA2CiAgfSwKICAibW9kZWxWZXJzaW9uIjogImdlbWluaS0zLWZsYXNoLXByZXZpZXciLAogICJyZXNwb25zZUlkIjogIk12Q05hZXFoTjZ5dHNPSVBpNFdPNlE4Igp9Cg==
+  recorded_at: Thu, 12 Feb 2026 15:22:26 GMT
+recorded_with: VCR 6.4.0

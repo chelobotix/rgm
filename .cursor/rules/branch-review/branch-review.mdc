@@ -5,6 +5,10 @@ alwaysApply: false
 
 When reviewing changes in the current branch for a merge request, follow these guidelines:
 
+## Output Language
+
+- **All branch review responses and summaries MUST be written in English**
+
 ## Comparison Target
 
 - **Always compare against `main` branch**
@@ -37,6 +41,13 @@ When reviewing changes in the current branch for a merge request, follow these g
 ## Summary Format
 
 When creating a summary for a merge request:
+
+### Merge Request Ready Output
+
+- **The response MUST be markdown, ready to copy and paste directly into a GitHub Merge Request description**
+- **WRAP the entire summary in a markdown code block** so the raw markdown is preserved when copying (chat UIs render markdown, which breaks copy-paste of syntax)
+- Format: output ONLY a single ```markdown ... ``` block containing the full summary. No preamble, no "Here is your summary" — just the code block
+- Inside the block: use standard markdown (## headers, **bold**, lists, `inline code`) so GitHub MR renders it correctly after paste
 
 ### Structure
 
@@ -129,9 +140,11 @@ git diff main
 
 ## Best Practices
 
-1. **Always compare against main** - Never use other branches as reference
-2. **Focus on implementation** - Explain HOW things were implemented, not just WHAT changed
-3. **Group related changes** - Organize by feature or component
-4. **Highlight important decisions** - Mention architectural choices and rationale
-5. **Detect issues early** - Point out syntax errors, potential bugs, or improvements needed
-6. **Use clear structure** - Make the summary easy to scan and understand
+1. **Merge Request ready** - Output the summary inside a ```markdown code block so raw markdown can be copied into a GitHub MR description
+2. **Respond in English** - All branch review output must be written in English
+3. **Always compare against main** - Never use other branches as reference
+4. **Focus on implementation** - Explain HOW things were implemented, not just WHAT changed
+5. **Group related changes** - Organize by feature or component
+6. **Highlight important decisions** - Mention architectural choices and rationale
+7. **Detect issues early** - Point out syntax errors, potential bugs, or improvements needed
+8. **Use clear structure** - Make the summary easy to scan and understand
